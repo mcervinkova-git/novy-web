@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "emmet.includeLanguages": { "html": "html" },
+  "livePreview.serverRoot": ".",
+  "css.validate": true,
+  "html.format.wrapLineLength": 120
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(softwareupdate --install \"Command Line Tools for Xcode 26.4-26.4.1\")",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(/opt/homebrew/bin/brew install *)",
+      "Bash(/opt/homebrew/bin/gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

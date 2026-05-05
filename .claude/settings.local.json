@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/marketa/Projects/novy-web status)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(brew --version)",
+      "Bash(xcode-select --install)"
+    ]
+  }
+}
