@@ -1,0 +1,218 @@
+/* ════════════════════════════
+   STRÁNKY SLUŽEB
+════════════════════════════ */
+
+.navbar__link--active {
+  color: var(--accent) !important;
+}
+
+/* ── SERVICE HEADER ── */
+.service-header {
+  background: var(--primary);
+  color: #fff;
+}
+.service-header .section-inner {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+.service-header__back {
+  display: inline-block;
+  color: var(--light-blue);
+  text-decoration: none;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+.service-header__back:hover { color: var(--accent); }
+
+.service-header__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.service-header__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.service-header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.service-header__sub {
+  color: var(--light-blue);
+  font-size: 1.05rem;
+  max-width: 620px;
+  line-height: 1.65;
+}
+
+/* ── SERVICE BODY ── */
+.service-body {
+  background: var(--bg-gray);
+}
+.service-body .section-inner {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ── MAIN CONTENT ── */
+.service-main h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.service-main h2:first-child { margin-top: 0; }
+
+.service-main > p {
+  font-size: 1.02rem;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+/* ── PROCESS STEPS ── */
+.process {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.process__step {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: #fff;
+  border: 0.5px solid #d1dce8;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+.process__num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+  width: 24px;
+}
+.process__step strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.35rem;
+}
+.process__step p {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── SERVICE LIST ── */
+.service-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.service-list li {
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 0.97rem;
+  color: #334155;
+  line-height: 1.6;
+}
+.service-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.service-list strong {
+  color: var(--primary);
+}
+
+/* ── SIDEBAR ── */
+.service-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.sidebar-card {
+  background: #fff;
+  border: 0.5px solid #d1dce8;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.sidebar-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.85rem;
+}
+.sidebar-card ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.sidebar-card ul li {
+  font-size: 0.9rem;
+  color: #475569;
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.sidebar-card ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.sidebar-card p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.sidebar-card--cta {
+  background: var(--primary);
+  border-color: transparent;
+}
+.sidebar-card--cta h3 { color: #fff; }
+.sidebar-card--cta p  { color: var(--light-blue); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-sidebar {
+    position: static;
+  }
+  .service-header h1 {
+    font-size: 1.75rem;
+  }
+}
