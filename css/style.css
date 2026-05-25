@@ -188,7 +188,7 @@ h2 {
 }
 
 .hero__stat-value {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--accent);
   line-height: 1.1;
@@ -196,7 +196,7 @@ h2 {
 }
 
 .hero__stat-label {
-  font-size: 0.8125rem;
+  font-size: 0.9rem;
   color: var(--light-blue);
   line-height: 1.3;
 }
