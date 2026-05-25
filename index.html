@@ -3,23 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nový web</title>
+    <title>Markéta Červinková — PPC & Analytics</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="#">Logo</a>
-      </nav>
+
+    <!-- NAVIGACE -->
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="#" class="navbar__logo">Markéta Červinková</a>
+        <nav class="navbar__links">
+          <a href="#o-mne">O mně</a>
+          <a href="#sluzby">Služby</a>
+          <a href="#nastroje">Nástroje</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <a href="#kontakt" class="btn btn--accent">Spolupracujme</a>
+      </div>
     </header>
 
     <main>
-      <h1>Vítejte</h1>
-      <p>Zde začíná váš nový web.</p>
+
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="section-inner">
+          <div class="hero__content">
+            <div class="hero__text">
+              <p class="section-label">PPC specialistka & analytička</p>
+              <h1>Reklamy, která přináší výsledky. Data, která dávají smysl.</h1>
+              <p class="hero__sub">Pomáhám malým i velkým firmám růst díky chytré online reklamě a datové analytice. Více než 3 roky zkušeností.</p>
+              <a href="#kontakt" class="btn btn--accent">Pojďme se pobavit →</a>
+            </div>
+            <div class="hero__avatar">
+              <div class="avatar">MČ</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- O MNĚ -->
+      <section class="about" id="o-mne">
+        <div class="section-inner">
+          <div class="deco-bar"></div>
+          <p class="section-label">O mně</p>
+          <h2>Kdo jsem</h2>
+          <p class="about__text">Jsem PPC specialistka s více než třemi lety zkušeností v online reklamě. Pracovala jsem s klienty od malých lokálních podniků až po velké e-commerce projekty. Věřím, že dobrá reklama začíná pochopením dat — proto jsem svou specializaci rozšířila o analytiku.</p>
+        </div>
+      </section>
+
+      <!-- SLUŽBY -->
+      <section class="services" id="sluzby">
+        <div class="section-inner">
+          <div class="deco-bar"></div>
+          <p class="section-label">Služby</p>
+          <h2>Co dělám</h2>
+          <div class="cards">
+
+            <div class="card">
+              <div class="card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 1 8.835-2.535m0 0A23.74 23.74 0 0 1 18.795 3c1.167 0 2.32.08 3.455.237m0 9.18V3m0 9.18c.12.063.239.127.357.192" />
+                </svg>
+              </div>
+              <h3>PPC kampaně</h3>
+              <p>Google Ads, správa, optimalizace a sledování výkonu kampaní.</p>
+            </div>
+
+            <div class="card">
+              <div class="card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                </svg>
+              </div>
+              <h3>Datová analytika</h3>
+              <p>Sběr, zpracování a vizualizace dat pro klíčová obchodní rozhodnutí.</p>
+            </div>
+
+            <div class="card">
+              <div class="card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m9.75-2.25h-2.25m2.25 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-9.75 0h2.25" />
+                </svg>
+              </div>
+              <h3>Reporty & dashboardy</h3>
+              <p>Přehledné dashboardy v Looker Studiu, které pochopíš na první pohled.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- NÁSTROJE -->
+      <section class="tools" id="nastroje">
+        <div class="section-inner">
+          <div class="deco-bar"></div>
+          <p class="section-label">Nástroje</p>
+          <h2>S čím pracuji</h2>
+          <div class="chips">
+            <span class="chip chip--blue">Google Ads</span>
+            <span class="chip chip--blue">Google Analytics 4</span>
+            <span class="chip chip--blue">Looker Studio</span>
+            <span class="chip chip--gold">BigQuery</span>
+            <span class="chip chip--gold">Google Cloud Platform</span>
+            <span class="chip chip--gold">SQL</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- KONTAKT -->
+      <section class="contact" id="kontakt">
+        <div class="section-inner">
+          <div class="deco-bar"></div>
+          <p class="section-label">Kontakt</p>
+          <h2>Pojďme spolupracovat</h2>
+          <form class="form" novalidate>
+            <div class="form__row">
+              <input class="form__input" type="text" placeholder="Jméno" required />
+              <input class="form__input" type="email" placeholder="E-mail" required />
+            </div>
+            <input class="form__input" type="text" placeholder="Předmět" />
+            <textarea class="form__input form__textarea" placeholder="Zpráva" rows="5" required></textarea>
+            <button type="submit" class="btn btn--accent">Odeslat zprávu</button>
+          </form>
+        </div>
+      </section>
+
     </main>
 
-    <footer>
-      <p>&copy; 2026</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <p>© 2026 Markéta Červinková · PPC & Analytics</p>
+      </div>
     </footer>
 
     <script src="js/script.js"></script>
