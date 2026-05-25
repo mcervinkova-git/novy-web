@@ -289,6 +289,7 @@ h2 {
 .contact {
   background: var(--primary);
   color: #fff;
+  text-align: center;
 }
 
 .contact h2 {
@@ -299,11 +300,17 @@ h2 {
   color: var(--light-blue);
 }
 
+.contact .deco-bar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .form__row {
