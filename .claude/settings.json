@@ -11,7 +11,19 @@
       "Bash(git commit *)",
       "Bash(/opt/homebrew/bin/gh repo *)",
       "Bash(/opt/homebrew/bin/gh api *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(ls -lh /Users/marketa/Projects/novy-web/assets/ && file \"/Users/marketa/Downloads/ChatGPT Image 25. 5. 2026 21_53_26.png\")",
+      "Read(//Users/marketa/Downloads/**)",
+      "Bash(curl -s \"https://cdn.simpleicons.org/_data/simpleicons.json\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(i['slug'] if 'slug' in i else i['title'].lower\\(\\).replace\\(' ',''\\)\\) for i in data['icons'] if any\\(k in i['title'].lower\\(\\) for k in ['bing','merchant','seznam']\\)]\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/simple-icons/simple-icons/develop/slugs.md\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://cdn.simpleicons.org/microsoftazure/042C53\")",
+      "Bash(curl -s -o /dev/null -w \"\\\\n%{http_code}\" \"https://cdn.simpleicons.org/microsoft/042C53\")",
+      "Bash(curl -sL \"https://www.microsoft.com/favicon.ico\" -o /tmp/test_bing.ico)",
+      "Bash(curl -sL \"https://unpkg.com/simple-icons@latest/icons/microsoftbing.svg\" -o /tmp/test_msbing.svg)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL \"https://unpkg.com/simple-icons@latest/icons/bing.svg\")",
+      "Bash(curl -sL \"https://unpkg.com/simple-icons@latest/icons/microsoftadvertising.svg\")"
     ]
   }
 }
