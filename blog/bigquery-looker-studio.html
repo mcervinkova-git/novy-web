@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automatizujte reporty: BigQuery + Looker Studio — Markéta Červinková</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+  </head>
+  <body>
+
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">Markéta Červinková</a>
+        <nav class="navbar__links">
+          <a href="../index.html#o-mne">O mně</a>
+          <a href="../index.html#sluzby">Služby</a>
+          <a href="../index.html#nastroje">Nástroje</a>
+          <a href="../blog.html" class="navbar__link--active">Blog</a>
+          <a href="../index.html#kontakt">Kontakt</a>
+        </nav>
+        <a href="../index.html#kontakt" class="btn btn--accent">Spolupracujme</a>
+      </div>
+    </header>
+
+    <section class="article-header">
+      <div class="section-inner">
+        <a href="../blog.html" class="article-header__back">← Zpět na blog</a>
+        <div class="article-header__meta" style="margin-bottom: 1rem;">
+          <span class="chip chip--gold">Analytika</span>
+        </div>
+        <h1>Automatizujte reporty: BigQuery + Looker Studio bez programování</h1>
+        <div class="article-header__meta">
+          <span class="article-header__date">18. dubna 2026</span>
+          <span class="article-header__author">· Markéta Červinková</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="article-body">
+      <div class="section-inner">
+        <div class="article-content">
+
+          <p>
+            Každý týden stahovat data z Google Ads do Excelu, překlápět je do tabulky a posílat klientovi PDF — to byl můj život ještě před dvěma lety. Dnes mám pipeline, který data stahuje automaticky každý den, ukládá je do BigQuery a Looker Studio je zobrazuje v dashboardu, který si klient otevře sám, kdykoli chce. A celé nastavení zabralo méně než den.
+          </p>
+
+          <h2>Proč přestat exportovat ručně</h2>
+          <p>
+            Ruční reporty mají tři zásadní problémy:
+          </p>
+          <ul>
+            <li><strong>Jsou zpožděné.</strong> Klient vidí data z minulého týdne, ne z dnešního rána.</li>
+            <li><strong>Jsou chybové.</strong> Jeden špatný VLOOKUP a čísla nesedí.</li>
+            <li><strong>Žerou čas.</strong> Hodiny týdně, které byste mohli věnovat skutečné optimalizaci.</li>
+          </ul>
+          <p>
+            Automatizovaný pipeline tyto problémy řeší najednou. A nejlepší část: Google poskytuje všechny potřebné nástroje zdarma nebo za minimální poplatek.
+          </p>
+
+          <h2>Krok 1: Google Ads Data Transfer do BigQuery</h2>
+          <p>
+            BigQuery Data Transfer Service umí přenášet data z Google Ads přímo do BigQuery tabulek — automaticky, každý den. Nastavení zvládnete přes Google Cloud Console bez jediného řádku kódu:
+          </p>
+          <ol>
+            <li>V Google Cloud Console otevřete BigQuery a pak BigQuery Data Transfer Service.</li>
+            <li>Vyberte zdroj „Google Ads" a propojte svůj účet.</li>
+            <li>Zvolte dataset (nebo vytvořte nový) a nastavte frekvenci přenosu (doporučuji denně).</li>
+            <li>Vyberte, která data chcete přenášet — pro PPC reporting zpravidla stačí <em>Campaign</em>, <em>AdGroup</em>, <em>Ad</em> a <em>Keyword</em> tabulky.</li>
+          </ol>
+          <p>
+            Přenos začne automaticky a data budou dostupná v BigQuery do 24 hodin.
+          </p>
+
+          <div class="tip">
+            <strong>Tip:</strong> BigQuery Data Transfer je zdarma co do přenosu samotného — platíte pouze za dotazy a uložení dat v BigQuery. Pro běžný PPC účet jsou náklady v řádu jednotek korun měsíčně.
+          </div>
+
+          <h2>Krok 2: Základní SQL dotaz pro dashboard</h2>
+          <p>
+            Jakmile máte data v BigQuery, potřebujete je "přeložit" do formy vhodné pro Looker Studio. Tady přichází SQL — ale nebojte se, základní dotazy jsou jednoduché. Příklad dotazu pro přehled výkonu kampaní:
+          </p>
+          <pre style="background:#f5f7fa; border-radius:8px; padding:1.25rem; overflow-x:auto; font-size:0.875rem; line-height:1.6; color:#334155; margin: 1.25rem 0;"><code>SELECT
+  campaign_name,
+  SUM(impressions)   AS impressions,
+  SUM(clicks)        AS clicks,
+  SUM(cost) / 1e6   AS cost_czk,
+  SUM(conversions)   AS conversions,
+  SUM(cost) / 1e6 / NULLIF(SUM(conversions), 0) AS cpa
+FROM
+  `vas-projekt.ads_dataset.p_campaign_*`
+WHERE
+  _DATA_DATE >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+GROUP BY
+  campaign_name
+ORDER BY
+  cost_czk DESC;</code></pre>
+          <p>
+            Výsledek tohoto dotazu ukáže výkon každé kampaně za posledních 30 dní — včetně CPA spočítaného automaticky. Dotaz uložte jako <em>View</em> v BigQuery a Looker Studio ho pak bude volat přímo.
+          </p>
+
+          <h2>Krok 3: Dashboard v Looker Studiu</h2>
+          <p>
+            Looker Studio je zdarma a propojení s BigQuery je nativní — stačí kliknout na „Přidat data" a vybrat váš projekt. Pak:
+          </p>
+          <ul>
+            <li>Přidejte grafy (výkonnostní trendová čára, tabulka kampaní, scorecardy pro klíčové metriky).</li>
+            <li>Nastavte ovládací prvky data — filtr na rozsah dat, který si klient může měnit sám.</li>
+            <li>Sdílejte dashboard odkazem — klient ho otevře v prohlížeči a vidí vždy aktuální data.</li>
+          </ul>
+
+          <h2>Výsledek</h2>
+          <p>
+            Po tomto nastavení máte živý dashboard, který se aktualizuje každý den bez vaší účasti. Klient má přehled kdykoli chce, vy šetříte hodiny každý týden a reporty přestávají být zdrojem chyb. Win-win.
+          </p>
+          <p>
+            Pokud vás toto téma zajímá nebo chcete podobný pipeline nastavit pro svůj účet, <a href="../index.html#kontakt" style="color: var(--primary); font-weight: 600;">napište mi</a> — ráda pomůžu.
+          </p>
+
+          <div class="article-nav">
+            <a href="performance-max.html">← Performance Max: 5 věcí, které vám nikdo neřekl</a>
+            <a href="../blog.html">Všechny články →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <p>© 2026 Markéta Červinková · PPC & Analytics</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
