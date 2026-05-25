@@ -173,22 +173,18 @@ h2 {
 
 .hero__stats {
   display: flex;
-  gap: 0;
+  gap: 1rem;
   margin-top: 2.5rem;
 }
 
 .hero__stat {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 0 2rem;
-  border-right: 1px solid rgba(133, 183, 235, 0.2);
-}
-.hero__stat:first-child {
-  padding-left: 0;
-}
-.hero__stat:last-child {
-  border-right: none;
+  gap: 0.3rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(133, 183, 235, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .hero__stat-value {
@@ -399,6 +395,7 @@ h2 {
   flex-direction: column;
   gap: 0.75rem;
   transition: box-shadow 0.2s, transform 0.15s;
+  position: relative;
 }
 .blog-card:hover {
   box-shadow: 0 4px 20px rgba(4, 44, 83, 0.1);
@@ -427,7 +424,13 @@ h2 {
   text-decoration: none;
   transition: color 0.2s;
 }
-.blog-card__title a:hover {
+.blog-card__title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+.blog-card:hover .blog-card__title a {
   color: var(--accent);
 }
 
@@ -458,6 +461,8 @@ h2 {
   color: #185FA5;
   text-decoration: none;
   transition: opacity 0.2s;
+  position: relative;
+  z-index: 1;
 }
 .blog-card__link:hover {
   opacity: 0.75;
@@ -592,17 +597,7 @@ h2 {
 
   .hero__stats {
     flex-direction: column;
-    gap: 1.25rem;
-  }
-  .hero__stat {
-    padding: 0;
-    border-right: none;
-    border-bottom: 1px solid rgba(133, 183, 235, 0.2);
-    padding-bottom: 1.25rem;
-  }
-  .hero__stat:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    gap: 0.75rem;
   }
 
   .cards {
