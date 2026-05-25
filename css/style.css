@@ -377,6 +377,114 @@ h2 {
 }
 
 /* ════════════════════════════
+   BLOG PREVIEW
+════════════════════════════ */
+.blog-preview {
+  background: var(--bg);
+}
+
+.blog-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.blog-card {
+  background: #fff;
+  border: 0.5px solid #d1dce8;
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.blog-card:hover {
+  box-shadow: 0 4px 20px rgba(4, 44, 83, 0.1);
+  transform: translateY(-2px);
+}
+
+.blog-card__tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--chip-gold-bg);
+  color: var(--chip-gold-text);
+  align-self: flex-start;
+}
+
+.blog-card__title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+.blog-card__title a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.blog-card__title a:hover {
+  color: var(--accent);
+}
+
+.blog-card__perex {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.blog-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.blog-card__date {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.blog-card__link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #185FA5;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.blog-card__link:hover {
+  opacity: 0.75;
+}
+
+.blog-preview__cta {
+  text-align: center;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+.btn--outline:hover {
+  background: var(--primary);
+  color: #fff;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .blog-preview__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ════════════════════════════
    KONTAKT
 ════════════════════════════ */
 .contact {
